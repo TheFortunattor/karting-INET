@@ -4,23 +4,10 @@ const bcrypt = require('bcrypt');
 // POST /api/user
 exports.save = (req, res, next) => {
   const user = new User({
-    username: req.body.username,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    role: req.body.role,
-    password: req.body.password
-  });
-  // hashear password
-  bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(user.password, salt, (err, hash) => {
-      if (err) throw err;
-      user.password = hash;
-      user.save(err => {
-        if (err) return next(err);
-        res.redirect('/');
-        // res.status(200).json(user);
-      });
-    });
+    Idus: req.body.IdUs,
+    idrol: req.body.IdRol,
+    nombre: req.body.Nombre,
+    contraseña: req.body.Contraseña,
   });
 };
 
