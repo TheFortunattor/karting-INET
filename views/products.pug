@@ -1,0 +1,44 @@
+.row
+  .col-sm
+    h2.text-center.mt-3 Dashboard
+    .text-right.mr-2
+      button.mt-3.btn.btn-success(data-toggle='modal' data-target='#newProduct') Nuevo producto  
+    h5.mt-3 Productos       
+    table.table.mt-3
+      thead
+        th ID
+        th Nombre
+        th Rango de temperatura
+        th Rango de humedad
+        th Acciones
+      tbody
+        each p in products
+          tr
+            td #{p.id}
+            td #{p.name}
+            td #{p.minT} ºC - #{p.maxT} ºC 
+            td #{p.minH} % - #{p.maxH} %
+            td 
+              a.mx-3(href=`/dashboard/product/${p.id}/delete`)
+                i(class='fa fa-trash' style='font-size: 24px; color: red;')
+              a.mx-3(href='#')
+                i(class='fa fa-edit' style='font-size: 24px; color: green;')  
+              
+#newProduct.modal.fade(tabindex='-1')
+   .modal-dialog
+       .modal-content
+          .modal-header
+            h5 Nuevo producto
+          .modal-body
+            form(method='post' action='/api/product')
+              .form-group
+                input(type='text' placeholder='Nombre' name='name')
+              .form-group
+                input(type='text' placeholder='Temperatura minima' name='minT')
+              .form-group
+                input(type='text' placeholder='Temperatura maxima' name='maxT')
+              .form-group
+                input(type='text' placeholder='Humedad minima' name='minH')   
+              .form-group
+                input(type='text' placeholder='Humedad maxima' name='maxH')      
+              input(type='submit' value='Enviar')                           

@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .row.mt-5
+    .col-sm-4
+    .col-sm-4
+      h2 Registrarse
+      form(method='post' action='/api/user')
+        .form-group
+          input(class='form-control' placeholder='Usuario' type='text' name='username') 
+        .form-group
+          input(class='form-control' placeholder='Nombre' type='text' name='firstName')
+        .form-group
+          input(class='form-control' placeholder='Apellido' type='text' name='lastName')
+        .form-group
+          input(class='form-control' placeholder='Contraseña' type='password' name='password')   
+        button(type='submit' class='btn btn-primary') Registrarse
+    .col-4          

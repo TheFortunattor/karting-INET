@@ -1,0 +1,50 @@
+div
+  h2.text-center.mt-3 Dashboard
+  .text-right.mr-2
+    button.mt-3.btn.btn-success(data-toggle='modal' data-target='#newUser') Nuevo usuario  
+  h5.mt-3 Usuarios       
+  table.table.mt-3
+    thead
+      th ID
+      th Username
+      th Nombre
+      th Apellido
+      th Rol
+      th Acciones
+    tbody
+      each u in users
+        tr
+          td #{u.id}
+          td #{u.username}
+          td #{u.firstName}
+          td #{u.lastName}
+          td #{u.role}
+          td 
+            a.mx-3(href=`/dashboard/user/${u.id}/delete`)
+              i(class='fa fa-trash' style='font-size: 24px; color: red;')
+            a.mx-3(href='#')
+              i(class='fa fa-edit' style='font-size: 24px; color: green;')
+            
+#newUser.modal.fade(tabindex='-1')
+   .modal-dialog
+       .modal-content
+          .modal-header
+            h5 Nuevo usuario
+          .modal-body
+            form(method='post' action='/api/user')
+              .form-group
+                input(type='text' placeholder='Nombre de usuario' name='username')
+              .form-group
+                input(type='text' placeholder='Nombre' name='firstName')
+              .form-group
+                input(type='text' placeholder='Apellido' name='lastName')   
+              .form-group
+                label Rol
+                select.form-control(name='role')   
+                  option user
+                  option admin
+              .form-group
+                input(type='password' placeholder='Password' name='password')   
+              input(type='submit' value='Enviar')                           
+            
+              

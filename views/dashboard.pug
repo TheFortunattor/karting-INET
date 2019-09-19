@@ -1,0 +1,32 @@
+extends layout
+
+block content 
+  .row
+    nav(class='col-sm-2 bg-light sidebar')
+      if (user)
+        .text-center
+          h4.mt-2 Bienvenido, #{user.firstName}
+          h6.text-muted #{user.role}
+          hr
+      ul.nav.flex-column
+        if (user.role == 'admin')
+          li.nav-item
+            a(class='nav-link' href='/dashboard/users') Usuarios
+        li.nav-item
+          a(class='nav-link' href='/dashboard/products') Productos  
+        li.nav-item
+          a(class='nav-link' href='/dashboard/actuators') Actuadores
+        li.nav-item
+          a(class='nav-link' href='/dashboard/sensors') Sensores
+    main(class='col-sm-10')
+      if (showUsers)
+        include users.pug
+      if (showProducts)
+        include products.pug 
+      if (showActuators)
+        include actuators.pug
+      if (showSensors)
+        include sensors.pug     
+      if (showReadings)
+        include readings.pug  
+      

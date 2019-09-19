@@ -1,0 +1,35 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    script(src='clock.js' type='text/javascript')
+      
+    title Karting
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container-fluid
+        a(class='navbar-brand ml-auto' href='#') Karting
+        span#clock.navbar-text.ml-auto= new Date().toLocaleTimeString()       
+        button.ml-auto.navbar-toggler(type='button' data-toggle='collapse' data-target='#navContent')
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse#navContent  
+          ul.navbar-nav.ml-auto
+            li.nav-item.ml-auto
+              if user
+                a(class='nav-link' href='/logout') Logout 
+              else
+                a(class='nav-link' href='/login') Login
+    div(class='container-fluid')
+      block content
+      footer
+        hr
+        .text-center  
+              
+        p.text-center.text-muted Karting INET &copy 2019 
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+          
