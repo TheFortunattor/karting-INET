@@ -11,9 +11,7 @@ block content
       ul.nav.flex-column
         if (user.role == 'admin')
           li.nav-item
-            a(class='nav-link' href='/dashboard/users') Usuarios
-        li.nav-item
-          a(class='nav-link' href='/dashboard/products') Productos  
+            a(class='nav-link' href='/dashboard/users') Corredores
         li.nav-item
           a(class='nav-link' href='/dashboard/actuators') Actuadores
         li.nav-item
@@ -21,8 +19,6 @@ block content
     main(class='col-sm-10')
       if (showUsers)
         include users.pug
-      if (showProducts)
-        include products.pug 
       if (showActuators)
         include actuators.pug
       if (showSensors)

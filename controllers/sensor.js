@@ -13,11 +13,11 @@ exports.save = (req, res, next) => {
       unit: req.body.unit,
       product: req.body.product
     });
-    sensor.save(err => {
-      if (err) return next(err);
-      res.redirect('/dashboard/sensors');
-      // res.status(200).json(sensor);
-    });
+ //   sensor.save(err => {
+ //     if (err) return next(err);
+ //     res.redirect('/dashboard/sensors');
+ //     // res.status(200).json(sensor);
+ //   });
 
   });
 };
