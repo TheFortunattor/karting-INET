@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
+const EscudoSchema = new mongoose.Schema({
   IdEsc: {
     type: int,
     required: true

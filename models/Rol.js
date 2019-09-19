@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // User schema
-const UserSchema = new mongoose.Schema({
+const RolSchema = new mongoose.Schema({
   IdRol: {
     type: int,
     required: true

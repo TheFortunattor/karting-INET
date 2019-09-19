@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-// User schema
-const UserSchema = new mongoose.Schema({
+
+const PilotoSchema = new mongoose.Schema({
   IdPil: {
     type: int,
     required: true
@@ -19,5 +19,5 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
 });
-// User model
+
 module.exports = mongoose.model('Piloto', PilotoSchema);
